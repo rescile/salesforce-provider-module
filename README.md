@@ -4,7 +4,7 @@
 [![Rescile UCS](https://img.shields.io/badge/provisioned%20by-Rescile%20UCS-purple.svg)](https://www.rescile.com/)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-This module creates and configures an in- and outbound connection for a **Salesforce Account on AWS** as a managed infrastructure target for subsequent resource deployments. It provides the foundation on which additional AWS resources can be provisioned, connected and managed through the Rescile UCS infrastructure model. The goal is to establish a simple, reusable and community-extensible resource model for AWS infrastructure.
+This module creates and configures an in- and outbound connection for a **Salesforce Account on AWS** as a managed infrastructure target for subsequent resource deployments. It provides the foundation on which additional AWS resources can be provisioned, connected and managed through the Rescile UCS infrastructure model. The goal is to establish a simple, a reusable and community-extensible resource model for the Hyperforce platform.
 
 ## Rescile UCS
 
