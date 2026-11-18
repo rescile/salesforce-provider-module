@@ -1,10 +1,10 @@
-# AWS Provider Module
+# Hyperforce Connectivity Module
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Rescile UCS](https://img.shields.io/badge/provisioned%20by-Rescile%20UCS-purple.svg)](https://www.rescile.com/)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-This module creates and configures an **AWS Account** as a managed infrastructure target for subsequent resource deployments. It provides the foundation on which additional AWS resources can be provisioned, connected and managed through the Rescile UCS infrastructure model. The goal is to establish a simple, reusable and community-extensible resource model for AWS infrastructure.
+This module creates and configures an in- and outbound connection for a **Salesforce Account on AWS** as a managed infrastructure target for subsequent resource deployments. It provides the foundation on which additional AWS resources can be provisioned, connected and managed through the Rescile UCS infrastructure model. The goal is to establish a simple, reusable and community-extensible resource model for AWS infrastructure.
 
 ## Rescile UCS
 
@@ -29,7 +29,7 @@ The module serves as  part of the **Rescile UCS infrastructure ecosystem**. Resc
 │      AWS Provider Module     │
 │                              │
 │                              │
-│  aws.json                    │
+│  salesforce.json                    │
 └──────────────────────────────┘
 ```
 
@@ -60,16 +60,11 @@ The module is used by Rescile UCS to define subsequent infrastructure resources 
 For example:
 
 ```text
-AWS Account
+Salesforce Account
     │
-    ├── VPC
-    │    ├── Subnet
-    │    ├── Route Table
-    │    └── Security Group
-    │
-    ├── EC2
-    │
-    ├── Load Balancer
+    ├── Private Connect
+    │    ├── Inbound Connection
+    │    └── Outbound Connection
     │
     └── ...
 ```
@@ -83,17 +78,12 @@ AWS Account
 ├── NOTICE
 ├── CONTRIBUTING.md
 ├── module.toml
-├── input/
-│    ├── aws-roles.json
-│    ├── aws-portfolio.json
-│    └── aws-decoder.json
-├── models/
-│    ├── aws.toml
-│    └── ...
+├── lib/
+│    ├── salesforce.libsonnet
+│    └── salesforce_servcices.libsonnet
 ├── output/
-│   └── ...
-└── runtimes/
-    └── ...
+│    ├── ...
+│    └── ...
 ```
 
 The exact structure may evolve as additional resources are introduced. The intention is to keep resources independently understandable and make it straightforward for contributors to add new AWS capabilities.
@@ -108,7 +98,7 @@ Useful contributions include:
 
 * New AWS resources
 * Resource schema improvements
-* AWS capability coverage
+* Provider capability coverage
 * Dependency definitions
 * Validation and testing
 * Documentation and examples
@@ -131,20 +121,14 @@ Useful contributions include:
 A typical contribution should include:
 
 ```text
-models/
-└── aws_<resource>/
-    ├── resource.toml
-    ├── schema.toml
-    └── ...
+lib/
+└── ...
 ```
 
 and, where appropriate:
 
 ```text
 generators/
-└── ...
-
-input/
 └── ...
 
 output/
