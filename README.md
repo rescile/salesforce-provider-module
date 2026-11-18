@@ -158,4 +158,4 @@ Contributions are accepted under the terms of the Apache License 2.0.
 
 **Build infrastructure together.**
 
-If you have an AWS resource that should be available through the Rescile UCS ecosystem, contributions are welcome.
+If you have an additional resource that should be available through the Rescile UCS ecosystem, contributions are welcome.
