@@ -13,23 +13,18 @@ The module serves as  part of the **Rescile UCS infrastructure ecosystem**. Resc
 ```text
 ┌──────────────────────────────┐
 │         Rescile UCS          │
-│                              │
 │   Model → Resolve → Deploy   │
 └───────────────┬──────────────┘
                 │
                 ▼
 ┌──────────────────────────────┐
 │      Landing Zone Module     │
-│                              │
-│                              │
 └───────────────┬──────────────┘
                 │
                 ▼
 ┌──────────────────────────────┐
-│      AWS Provider Module     │
-│                              │
-│                              │
-│  salesforce.json                    │
+│  Salesforce Provider Module  │
+│     salesforce.libsonnet     │
 └──────────────────────────────┘
 ```
 
