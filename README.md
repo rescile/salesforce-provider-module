@@ -35,7 +35,7 @@ UCS provides the common control plane, while individual modules describe the inf
 | Module              | Resource                                                                  |
 | ------------------- | ------------------------------------------------------------ |
 | core                | The UCS core defines the `resident.toml` that holds together multiple subscriptions |
-| landing zone        | The landing zone introduces a `subscription.toml` that serves as root for AWS resouce definitions. |
+| landing zone        | The landing zone introduces a `subscription.toml` that serves as root for cloud resouce definitions. |
 
 The resource catalog is intentionally small at this stage. Additional AWS resources are expected to be contributed by the community.
 
