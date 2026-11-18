@@ -19,6 +19,7 @@ The module serves as  part of the **Rescile UCS infrastructure ecosystem**. Resc
                 ▼
 ┌──────────────────────────────┐
 │      Landing Zone Module     │
+│          module.toml         │
 └───────────────┬──────────────┘
                 │
                 ▼
