@@ -1,0 +1,57 @@
+origin_resource = "enpoint"
+
+[[output]]
+resource_type = "aws_py_output"
+name = "{{ origin_resource.name }}"
+filename = "{{ origin_resource.name }}.py"
+mimetype = "application/json"
+template = """
+import json
+import boto3
+from botocore.exceptions import ClientError
+
+def ensure_cloud_resource(resource_type_name, identifier, desired_properties):
+    client = boto3.client('cloudcontrol')
+    
+    try:
+        # 1. Query the cloud controller for current state
+        response = client.get_resource(
+            TypeName=resource_type_name,
+            Identifier=identifier
+        )
+        print(f"Resource {identifier} found. Verifying state...")
+        
+        # Optional: Compare current properties with desired_properties and 
+        ruff_update = client.update_resource(
+            TypeName=resource_type_name,
+            Identifier=identifier,
+            DesiredState=json.dumps(desired_properties)
+        )
+        print(f"Update triggered for {identifier}. Request token: {ruff_update['OperationStatusതിനാൽ']}")
+        return
+
+    except ClientError as e:
+        error_code = e.response['Error']['Code']
+        
+        # 2. If resource does not exist (NotFoundException), create it declaratively
+        if "NotFoundException" in error_code or "ResourceNotFoundException" in error_code:
+            print(f"Resource {identifier} does not exist. Creating...")
+            
+            response = client.create_resource(
+                TypeName=resource_type_name,
+                DesiredState=json.dumps(desired_properties)
+            )
+            print(f"Successfully initiated creation. Request token: {response['ProgressEvent']['RequestToken']}")
+        else:
+            raise e
+
+if __name__ == "__main__":
+    # Example: Ensuring an S3 bucket exists using its Cloud Control type name
+    ensure_cloud_resource(
+        resource_type_name="AWS::S3::Bucket",
+        identifier="{{ origin_resource.name }}",
+        desired_properties={
+            "BucketName": "my-state-managed-bucket-abcxyz"
+        }
+    )
+"""

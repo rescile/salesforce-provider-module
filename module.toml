@@ -1,0 +1,6 @@
+[module]
+name = "Salesforce Provider Module"
+url = "https://github.com/rescile/salesforce-provider-module"
+version = "0.0.5"
+description = "The Salesforce provider module adds the configuration schemas and properties required by a hyperforce deployment to interact with and manage Salesforce service APIs."
+rescile_version = ">=0.1.201"
