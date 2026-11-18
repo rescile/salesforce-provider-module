@@ -91,7 +91,7 @@ This project is intended to grow beyond the initial AWS Region resource through 
 
 Useful contributions include:
 
-* New AWS resources
+* New hyperforce resources
 * Resource schema improvements
 * Provider capability coverage
 * Dependency definitions
